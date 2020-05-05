@@ -41,7 +41,7 @@
  		<constructor-arg index="0" value="THIS.IS.TEST.TOPIC" />
 	</bean>
  
-  <!-- JmsTemplate Definition For Queue 
+  <!-- JmsTemplate Definition For Queue  
   	<bean id="jmsTemplate" class="org.springframework.jms.core.JmsTemplate">
     	<property name="connectionFactory" ref="cachingConnectionFactory" />
     	<property name="defaultDestination" ref="queueDestination" />
@@ -49,19 +49,20 @@
   
   	<jms:listener-container connection-factory="cachingConnectionFactory">
 		<jms:listener destination="THIS.IS.TEST.QUEUE" ref="messageListenerTest" />
-	</jms:listener-container>  -->
+	</jms:listener-container> -->
 	
+	<!--  -->
 	 <jms:listener-container  connection-factory="cachingConnectionFactory" destination-type="topic">
 		<jms:listener destination="THIS.IS.TEST.TOPIC" ref="firstSubscriber" />
 		<jms:listener destination="THIS.IS.TEST.TOPIC" ref="secondSubscriber" />
 	</jms:listener-container>
   
-  <!-- JmsTemplate Definition For Topic -->
+  <!-- JmsTemplate Definition For Topic  -->
   	<bean id="topicTemplate" class="org.springframework.jms.core.JmsTemplate" >
     	<property name="connectionFactory" ref="cachingConnectionFactory" />
     	<property name="defaultDestination" ref="topicDestination" />
-    	<property name="pubSubDomain" value="true"/>
-  	</bean> 
+    	<property name="pubSubDomain" value="true"/> 
+  	</bean>
 
 
 

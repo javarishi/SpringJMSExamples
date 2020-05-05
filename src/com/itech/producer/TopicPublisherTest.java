@@ -20,7 +20,7 @@ public class TopicPublisherTest {
 	    MessageCreator message = new MessageCreator() {
 			@Override
 			public Message createMessage(Session session) throws JMSException {
-				return session.createTextMessage("This is test message");
+				return session.createTextMessage("TopicPublisherTest :: This is test message");
 			}
 		};
 		// Send the message
